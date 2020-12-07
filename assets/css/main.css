@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Radio Grotesk";
+  src: url("../fonts/RadioGrotesk-Regular.woff2") format("woff2"),
+    url("../fonts/RadioGrotesk-Regular.woff2") format("woff");
+}
+
+html {
+  background-color: #d2d2d2;
+  color: #020202;
+  font-family: "Radio Grotesk", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+body {
+  margin: 0;
+}
+
+li,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section {
+  position: relative;
+  z-index: 2;
+  margin: 11.5vw 16px 16.6vw;
+}
+
+.is-hidden {
+  opacity: 0;
+}
+
+.title--section {
+  margin-top: 20vw;
+  font-size: 12vw;
+}
