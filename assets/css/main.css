@@ -36,7 +36,3 @@ ul {
   margin-top: 20vw;
   font-size: 12vw;
 }
-
-.is-open.accordeon__item:last-of-type + .cards {
-  border-bottom: 2px solid #020202;
-}

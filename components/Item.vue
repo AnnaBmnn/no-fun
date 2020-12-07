@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <li :class="`accordeon__item js-toggle-accordeon ${show ? 'is-open' : ''} `" @click="showList">
+  <div class="accordeon__item-container">
+    <li :class="`accordeon__item ${show ? 'is-open' : ''} `" @click="showList">
       <h3>{{ $prismic.asText(theme.data.title) }}</h3>
       <img src="~/assets/img/cross.svg" alt="toggle accordeon" class="accordeon__icon" />
     </li>
@@ -87,20 +87,21 @@ export default {
   height: auto;
 }
 
-.accordeon__item:last-of-type {
-  border-bottom: 2px solid #020202;
+.accordeon__item h3 {
+  margin: 0;
+  font-size: 7vw;
 }
-
 .accordeon__item.is-open {
   border-bottom: none;
 }
 
-.is-open.accordeon__item:last-of-type + .cards {
+.accordeon__item-container:last-of-type .accordeon__item {
   border-bottom: 2px solid #020202;
 }
-
-.accordeon__item h3 {
-  margin: 0;
-  font-size: 7vw;
+.accordeon__item-container:last-of-type .is-open.accordeon__item + .cards {
+  border-bottom: 2px solid #020202;
+}
+.accordeon__item-container:last-of-type .is-open.accordeon__item {
+  border-bottom: none;
 }
 </style>
