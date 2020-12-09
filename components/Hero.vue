@@ -40,6 +40,7 @@ export default {
   line-height: 0.9;
   /* mix-blend-mode: difference; */
   color: #020202;
+  font-weight: bold;
 }
 @media screen and (max-width: 800px) {
   .title--top {
@@ -54,6 +55,7 @@ export default {
   margin: 0;
   line-height: 0.9;
   font-size: 20vw;
+  font-weight: bold;
 }
 
 .fixed {
