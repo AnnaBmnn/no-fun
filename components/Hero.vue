@@ -44,7 +44,7 @@ export default {
 }
 @media screen and (max-width: 800px) {
   .title--top {
-    font-size: 19vw;
+    font-size: 16vw;
   }
 }
 
@@ -77,7 +77,8 @@ export default {
   }
   .title--bottom {
     left: 10px;
-    top: 17vw;
+    top: 15vw;
+    font-size: 18vw;
     bottom: unset;
   }
 }
