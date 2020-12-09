@@ -37,7 +37,7 @@ export default {
 @media screen and (max-width: 800px) {
   .cards {
     padding: 10vw 14px calc(15vw - 20px);
-    min-height: 45vh;
+    min-height: 55vh;
   }
 }
 </style>
