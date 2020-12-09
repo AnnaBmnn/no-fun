@@ -41,6 +41,11 @@ export default {
   /* mix-blend-mode: difference; */
   color: #020202;
 }
+@media screen and (max-width: 800px) {
+  .title--top {
+    font-size: 19vw;
+  }
+}
 
 .title--bottom {
   position: absolute;
@@ -56,14 +61,22 @@ export default {
   height: 100vh;
   width: 100vw;
   opacity: 1;
-  /* z-index: -1; */
+  z-index: -1;
 }
 
 .title--fixed {
   z-index: -1;
   position: fixed;
-  /* color: #00ff00; */
   color: #fdff9b;
-  /* color: #ff7700; */
+}
+@media screen and (max-width: 800px) {
+  .title--top {
+    left: 10px;
+  }
+  .title--bottom {
+    left: 10px;
+    top: 17vw;
+    bottom: unset;
+  }
 }
 </style>

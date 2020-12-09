@@ -36,3 +36,11 @@ ul {
   margin-top: 20vw;
   font-size: 12vw;
 }
+@media screen and (max-width: 800px) {
+  .section {
+    margin: 11.5vw 10px 16.6vw;
+  }
+  .title--section {
+    font-size: 13vw;
+  }
+}

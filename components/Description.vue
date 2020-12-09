@@ -20,4 +20,10 @@ export default {
   font-size: 6vw;
   width: 85%;
 }
+@media screen and (max-width: 800px) {
+  .txt--big {
+    font-size: 8vw;
+    width: 90%;
+  }
+}
 </style>

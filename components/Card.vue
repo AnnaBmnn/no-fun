@@ -1,6 +1,8 @@
 <template>
   <div class="card">
-    <div class="card__index">{{ index }}</div>
+    <div class="card__index">
+      {{ showIndex }}
+    </div>
     <div class="card__separator"></div>
     <h4 class="card__title">
       {{ title }}
@@ -23,37 +25,41 @@ export default {
       type: String,
       required: false,
     },
+    themeId: {
+      type: String,
+      required: false,
+    },
+    publishedAt: {
+      type: String,
+      required: false,
+    },
+  },
+  computed: {
+    showIndex: function() {
+      // X8Y6JXIAACKAKZZD
+      if (this.themeId === "X8Y6jxIAACkAkzzd") {
+        const date = Intl.DateTimeFormat("fr-FR", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(new Date(this.publishedAt));
+        console.log(date);
+        return date;
+      } else {
+        return this.index < 10 ? "0" + this.index : this.index;
+      }
+    },
   },
 };
 </script>
 <style scoped>
-.is-open.accordeon__item:last-of-type + .cards {
-  border-bottom: 2px solid #020202;
-}
-
-.cards {
-  width: 100%;
-  padding: 3vw 0 calc(11vw - 20px);
-  min-height: 75vh;
-  box-sizing: border-box;
-  display: none;
-  flex-wrap: nowrap;
-  overflow: auto;
-  justify-content: space-between;
-  /* padding-bottom: 20px; */
-}
-
-.cards li:last-of-type {
-  margin-right: 0px;
-}
-
 .card {
   height: 100%;
   position: relative;
-  width: calc(33.333% - 14px);
-  max-width: calc(33.333% - 14px);
-  min-width: calc(33.333% - 14px);
-  flex-basis: calc(33.333% - 14px);
+  width: calc(30% - 14px);
+  max-width: calc(30% - 14px);
+  min-width: calc(30% - 14px);
+  flex-basis: calc(30% - 14px);
   margin-right: 14px;
 }
 
@@ -85,5 +91,27 @@ export default {
 
 .card__link:hover {
   font-style: italic;
+}
+@media screen and (max-width: 800px) {
+}
+@media screen and (max-width: 500px) {
+  .card {
+    width: calc(75% - 14px);
+    max-width: calc(75% - 14px);
+    min-width: calc(75% - 14px);
+    flex-basis: calc(75% - 14px);
+  }
+  .card__title {
+    margin: 8px 0 21vw;
+    font-size: 6vw;
+    max-width: 90%;
+    line-height: 1.1;
+  }
+  .card__index {
+    font-size: 7vw;
+  }
+  .card__link {
+    font-size: 5vw;
+  }
 }
 </style>

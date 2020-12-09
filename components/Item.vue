@@ -75,4 +75,16 @@ export default {
 .accordeon__item-container:last-of-type .is-open.accordeon__item {
   border-bottom: none;
 }
+@media screen and (max-width: 800px) {
+  .accordeon__item {
+    align-items: flex-start;
+  }
+  .accordeon__item h3 {
+    font-size: 10vw;
+  }
+  .accordeon__icon {
+    margin: 2.5vw 0px 0.6vw 14px;
+    width: 8vw;
+  }
+}
 </style>
