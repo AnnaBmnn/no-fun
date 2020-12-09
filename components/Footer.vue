@@ -3,7 +3,7 @@
     <nav>
       <ul>
         <li>
-          <span class="footer__emoji">☻</span> Fonts : Radio Grotesk par
+          <span class="footer__emoji">☺︎</span> Fonts : Radio Grotesk par
           <a
             alt="site de pangram pangram, foundry"
             class="footer__link"

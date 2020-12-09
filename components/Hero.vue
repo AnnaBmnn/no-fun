@@ -73,7 +73,7 @@ export default {
 }
 @media screen and (max-width: 800px) {
   .hero {
-    height: 60vh;
+    height: 45vh;
   }
   .title--top {
     left: 10px;
