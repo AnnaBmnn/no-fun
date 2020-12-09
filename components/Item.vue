@@ -4,29 +4,7 @@
       <h3>{{ $prismic.asText(theme.data.title) }}</h3>
       <img src="~/assets/img/cross.svg" alt="toggle accordeon" class="accordeon__icon" />
     </li>
-    <!-- créer un component allcard et mettre un LazyAllCards -->
-    <ul class="cards" v-if="show">
-      <Card
-        index="0"
-        title="Détruire l'Université d'André Gorz, suivi d'un commentaire/ café du commerce"
-        url="https://google.com"
-      />
-      <Card
-        index="1"
-        title="Détruire l'Université d'André Gorz, suivi d'un commentaire/ café du commerce"
-        url="https://google.com"
-      />
-      <Card
-        index="2"
-        title="Détruire l'Université d'André Gorz, suivi d'un commentaire/ café du commerce"
-        url="https://google.com"
-      />
-      <Card
-        index="3"
-        title="Détruire l'Université d'André Gorz, suivi d'un commentaire/ café du commerce"
-        url="https://google.com"
-      />
-    </ul>
+    <LazyCards v-if="show" :episodes="episodes" />
   </div>
 </template>
 <script>
@@ -35,6 +13,10 @@ export default {
     theme: {
       type: Object,
       required: true,
+    },
+    episodes: {
+      type: Array,
+      required: false,
     },
   },
   data() {
@@ -64,17 +46,6 @@ export default {
 
 .is-open .accordeon__icon {
   transform: rotate(45deg);
-}
-
-.cards {
-  width: 100%;
-  padding: 3vw 0 calc(11vw - 20px);
-  min-height: 75vh;
-  display: flex;
-  box-sizing: border-box;
-  flex-wrap: nowrap;
-  overflow-y: scroll;
-  justify-content: space-between;
 }
 
 .accordeon__item:hover {

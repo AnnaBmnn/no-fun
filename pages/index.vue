@@ -6,7 +6,7 @@
     />
     <Description :content="$prismic.asText(homepage.content)" />
     <Section :title="$prismic.asText(homepage.title_section)">
-      <Accordeon :themes="themes" />
+      <Accordeon :themes="themes" :episodes="episodes" />
     </Section>
   </div>
 </template>
@@ -21,11 +21,13 @@ export default {
 
       // Query to get posts content, here we also change the 'predicates' query
       const themes = await $prismic.api.query($prismic.predicates.at("document.type", "theme"));
+      const episodes = await $prismic.api.query($prismic.predicates.at("document.type", "episod"));
 
       // Returns data to be used in template
       return {
         homepage,
         themes: themes.results,
+        episodes: episodes.results,
       };
     } catch (e) {
       // Returns error page
