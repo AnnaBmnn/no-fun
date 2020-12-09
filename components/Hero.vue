@@ -72,12 +72,15 @@ export default {
   color: #fdff9b;
 }
 @media screen and (max-width: 800px) {
+  .hero {
+    height: 60vh;
+  }
   .title--top {
     left: 10px;
   }
   .title--bottom {
     left: 10px;
-    top: 15vw;
+    top: 14vw;
     font-size: 18vw;
     bottom: unset;
   }
