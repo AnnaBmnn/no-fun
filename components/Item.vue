@@ -87,6 +87,7 @@ export default {
 @media screen and (max-width: 800px) {
   .accordeon__item {
     align-items: flex-start;
+    text-align: left;
   }
   .accordeon__item h3 {
     font-size: 10vw;

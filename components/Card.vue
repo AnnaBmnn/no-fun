@@ -103,14 +103,13 @@ export default {
 @media screen and (max-width: 500px) {
   .card {
     width: calc(75% - 14px);
-    max-width: calc(75% - 14px);
-    min-width: calc(75% - 14px);
-    flex-basis: calc(75% - 14px);
+    max-width: calc(66% - 14px);
+    min-width: calc(66% - 14px);
+    flex-basis: calc(66% - 14px);
   }
   .card__title {
     margin: 8px 0 21vw;
-    font-size: 6vw;
-    max-width: 90%;
+    font-size: 7vw;
     line-height: 1.1;
   }
   .card__index {
