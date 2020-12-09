@@ -1,11 +1,20 @@
 <template>
-  <div class="accordeon__item-container">
-    <li :class="`accordeon__item ${show ? 'is-open' : ''} `" @click="showList">
+  <li
+    class="accordeon__item-container"
+    :aria-label="`ouvrir les épisode du thème ${$prismic.asText(theme.data.title)}`"
+  >
+    <button :class="`accordeon__item ${show ? 'is-open' : ''} `" @click="showList">
       <h3>{{ $prismic.asText(theme.data.title) }}</h3>
-      <img src="~/assets/img/cross.svg" alt="toggle accordeon" class="accordeon__icon" />
-    </li>
+      <img
+        src="~/assets/img/cross.svg"
+        alt="toggle accordeon"
+        width="6vw"
+        height="6vw"
+        class="accordeon__icon"
+      />
+    </button>
     <LazyCards v-if="show" :episodes="episodes" />
-  </div>
+  </li>
 </template>
 <script>
 export default {

@@ -4,14 +4,20 @@
       <ul>
         <li>
           <span class="footer__emoji">☻</span> Fonts : Radio Grotesk par
-          <a class="footer__link" href="https://pangrampangram.com/"
+          <a
+            alt="site de pangram pangram, foundry"
+            class="footer__link"
+            href="https://pangrampangram.com/"
             ><span class="footer__link-content">Pangram Pangram</span>
             <span class="footer__hover">☻</span></a
           >
         </li>
         <li>
           <span class="footer__emoji">☺︎</span> Design + Code :
-          <a class="footer__link" href="https://www.instagram.com/bannabmnn.cyber/"
+          <a
+            alt="instagram de Anna Baumann"
+            class="footer__link"
+            href="https://www.instagram.com/bannabmnn.cyber/"
             ><span class="footer__link-content">Anna Baumann</span>
             <span class="footer__hover">☺︎</span></a
           >

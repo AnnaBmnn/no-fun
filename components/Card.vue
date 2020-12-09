@@ -7,7 +7,13 @@
     <h4 class="card__title">
       {{ title }}
     </h4>
-    <a :href="url" class="card__link" target="_blank">→ écouter</a>
+    <a
+      :href="url"
+      class="card__link"
+      target="_blank"
+      :alt="`écouter l'épisode ${title} sur soundcloud`"
+      >→ écouter</a
+    >
   </div>
 </template>
 <script>

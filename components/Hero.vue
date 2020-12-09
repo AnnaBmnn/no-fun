@@ -5,8 +5,8 @@
       <span class="title title--bottom title--fixed">{{ titleBottom }}</span>
     </h1>
     <section class="hero ">
-      <h1 class="title title--top">{{ titleTop }}</h1>
-      <h1 class="title title--bottom">{{ titleBottom }}</h1>
+      <span class="title title--top">{{ titleTop }}</span>
+      <span class="title title--bottom">{{ titleBottom }}</span>
     </section>
   </div>
 </template>
