@@ -62,5 +62,8 @@
     font-size: 0.8rem;
     margin: 45vh 10px 44vh;
   }
+  .footer__emoji {
+    transform: translateY(3px);
+  }
 }
 </style>
