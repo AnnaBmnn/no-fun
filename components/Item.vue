@@ -13,7 +13,7 @@
         class="accordeon__icon"
       />
     </button>
-    <LazyCards v-if="show" :episodes="episodes" />
+    <Cards v-if="show" :episodes="episodes" />
   </li>
 </template>
 <script>
