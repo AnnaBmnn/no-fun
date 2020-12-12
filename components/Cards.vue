@@ -23,16 +23,19 @@ export default {
 </script>
 <style scoped>
 .cards {
-  width: 100vw;
-  transform: translateX(-14px);
+  width: calc(100% + 32px);
+  transform: translateX(-16px);
   padding: 3vw 14px calc(11vw - 20px);
   min-height: 75vh;
   display: flex;
   box-sizing: border-box;
   flex-wrap: nowrap;
-  overflow-y: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
   justify-content: space-between;
   cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.6) transparent;
 }
 @media screen and (max-width: 800px) {
   .cards {
