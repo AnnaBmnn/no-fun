@@ -5,6 +5,7 @@
       :key="theme.UID"
       :theme="theme"
       :episodes="episodes.filter((episode) => episode.data.theme.id === theme.id)"
+      :authors="authors.filter((author) => theme.data.author.id === author.id)"
     />
   </ul>
 </template>
@@ -16,6 +17,10 @@ export default {
       required: true,
     },
     episodes: {
+      type: Array,
+      required: true,
+    },
+    authors: {
       type: Array,
       required: true,
     },

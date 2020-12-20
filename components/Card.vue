@@ -111,6 +111,7 @@ export default {
     margin: 8px 0 21vw;
     font-size: 7vw;
     line-height: 1.1;
+    min-height: 23vw;
   }
   .card__index {
     font-size: 7vw;

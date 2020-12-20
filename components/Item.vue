@@ -13,6 +13,12 @@
         class="accordeon__icon"
       />
     </button>
+    <div v-if="show && authors.length > 0" class="accordeon__author">
+      par
+      <span v-for="author in authors" :key="author.UID">
+        {{ $prismic.asText(authors[0].data.name) }}
+      </span>
+    </div>
     <Cards v-if="show" :episodes="episodes" />
   </li>
 </template>
@@ -24,6 +30,10 @@ export default {
       required: true,
     },
     episodes: {
+      type: Array,
+      required: false,
+    },
+    authors: {
       type: Array,
       required: false,
     },
@@ -84,6 +94,10 @@ export default {
 .accordeon__item-container:last-of-type .is-open.accordeon__item {
   border-bottom: none;
 }
+.accordeon__author {
+  font-size: 1.7vw;
+  margin-bottom: 1vw;
+}
 @media screen and (max-width: 800px) {
   .accordeon__item {
     align-items: flex-start;
@@ -95,6 +109,10 @@ export default {
   .accordeon__icon {
     margin: 2.5vw 0px 0.6vw 14px;
     width: 8vw;
+  }
+  .accordeon__author {
+    font-size: 5vw;
+    margin: 3vw 0;
   }
 }
 </style>

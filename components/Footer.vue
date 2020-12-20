@@ -2,31 +2,32 @@
   <footer class="footer">
     <nav>
       <ul>
-        <li>
-          <span class="footer__emoji">☺︎</span> Fonts : Radio Grotesk par
+        <li v-for="(item, index) in footer" :key="index">
+          <span class="footer__emoji">☺︎</span>
+          {{ $prismic.asText(item.label) }}
           <a
             alt="site de pangram pangram, foundry"
             class="footer__link"
-            href="https://pangrampangram.com/"
-            ><span class="footer__link-content">Pangram Pangram</span>
+            target="_blank"
+            :href="item.link.url"
+            ><span class="footer__link-content">{{ $prismic.asText(item.link_content) }}</span>
             <span class="footer__hover">☻</span></a
-          >
-        </li>
-        <li>
-          <span class="footer__emoji">☺︎</span> Design + Code :
-          <a
-            alt="instagram de Anna Baumann"
-            class="footer__link"
-            href="https://www.instagram.com/bannabmnn.cyber/"
-            ><span class="footer__link-content">Anna Baumann</span>
-            <span class="footer__hover">☺︎</span></a
           >
         </li>
       </ul>
     </nav>
   </footer>
 </template>
-<script></script>
+<script>
+export default {
+  props: {
+    footer: {
+      type: Array,
+      required: true,
+    },
+  },
+};
+</script>
 <style scoped>
 .footer {
   margin: 48vh 16px 46vh;

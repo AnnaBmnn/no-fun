@@ -26,14 +26,13 @@ export default {
   width: calc(100% + 32px);
   transform: translateX(-16px);
   padding: 3vw 14px calc(11vw - 20px);
-  min-height: 75vh;
+  min-height: 70vh;
   display: flex;
   box-sizing: border-box;
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
   justify-content: space-between;
-  cursor: grab;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.6) transparent;
 }
