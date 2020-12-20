@@ -1,5 +1,6 @@
 <template>
   <li
+    v-if="episodes.length > 0"
     class="accordeon__item-container"
     :aria-label="`ouvrir les épisode du thème ${$prismic.asText(theme.data.title)}`"
   >
@@ -13,13 +14,13 @@
         class="accordeon__icon"
       />
     </button>
-    <div v-if="show && authors.length > 0" class="accordeon__author">
+    <div v-show="show && authors.length > 0" class="accordeon__author">
       par
       <span v-for="author in authors" :key="author.UID">
         {{ $prismic.asText(authors[0].data.name) }}
       </span>
     </div>
-    <Cards v-if="show" :episodes="episodes" />
+    <Cards v-show="show" :episodes="episodes" />
   </li>
 </template>
 <script>

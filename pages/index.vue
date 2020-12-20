@@ -19,7 +19,9 @@ export default {
       // has the api endpoint data from the nuxt.config.js
       const homepage = (await $prismic.api.getSingle("homepage")).data;
       const themes = await $prismic.api.query($prismic.predicates.at("document.type", "theme"));
-      const episodes = await $prismic.api.query($prismic.predicates.at("document.type", "episod"));
+      const episodes = await $prismic.api.query($prismic.predicates.at("document.type", "episod"), {
+        orderings: "[my.episod.published desc]",
+      });
       const authors = await $prismic.api.query($prismic.predicates.at("document.type", "author"));
 
       // Returns data to be used in template
