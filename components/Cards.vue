@@ -23,6 +23,7 @@ export default {
 </script>
 <style scoped>
 .cards {
+  position: relative;
   width: calc(100% + 32px);
   transform: translateX(-16px);
   padding: 3vw 14px calc(11vw - 20px);
@@ -35,6 +36,16 @@ export default {
   justify-content: space-between;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.6) transparent;
+}
+.cards:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: calc(100% - 32px);
+  left: 16px;
+  background-color: black;
+  opacity: 0;
 }
 @media screen and (max-width: 800px) {
   .cards {

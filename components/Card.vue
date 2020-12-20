@@ -49,7 +49,6 @@ export default {
           month: "2-digit",
           day: "2-digit",
         }).format(new Date(this.publishedAt));
-        console.log(date);
         return date;
       } else {
         return this.index < 10 ? "0" + this.index : this.index;

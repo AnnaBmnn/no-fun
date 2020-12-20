@@ -89,9 +89,13 @@ export default {
 .accordeon__item-container:last-of-type .accordeon__item {
   border-bottom: 2px solid #020202;
 }
-.accordeon__item-container:last-of-type .is-open.accordeon__item + .cards {
-  border-bottom: 2px solid #020202;
+.accordeon__item-container:last-of-type
+  .is-open.accordeon__item
+  + .accordeon__author
+  + .cards:after {
+  opacity: 1;
 }
+
 .accordeon__item-container:last-of-type .is-open.accordeon__item {
   border-bottom: none;
 }
