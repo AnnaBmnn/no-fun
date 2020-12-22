@@ -1,0 +1,129 @@
+<template>
+  <canvas id="canvas" class="canvas"></canvas>
+</template>
+
+<script>
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import OrbitControls from "three-orbitcontrols";
+
+export default {
+  name: "ThreeJSContainer",
+  data() {
+    return {
+      camera: null,
+      controls: null,
+      scene: null,
+      renderer: null,
+      mesh: null,
+      hlight: null,
+      light: null,
+      ligh2: null,
+    };
+  },
+  methods: {
+    init() {
+      let loader = new GLTFLoader();
+
+      // Scene
+      this.scene = new THREE.Scene();
+      // this.scene.background = new THREE.Color(0xdddddd);
+
+      // Camera
+      this.camera = new THREE.PerspectiveCamera(
+        80,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        800
+      );
+      this.camera.position.set(5, 5, 5);
+
+      // Lights
+      // this.hlight = new THREE.AmbientLight(0x404040, 100);
+      // this.scene.add(this.hlight);
+      this.light = new THREE.PointLight(0xffffcc, 20, 200);
+      this.light.position.set(4, 30, -20);
+      this.scene.add(this.light);
+
+      this.light2 = new THREE.AmbientLight(0x20202a, 20, 100);
+      this.light2.position.set(30, -10, 30);
+      this.scene.add(this.light2);
+
+      // Rendering
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById("canvas"),
+        antialias: true,
+      });
+      this.renderer.setClearColor(0x2f8e76);
+      this.renderer.setPixelRatio(window.devicePixelRatio);
+      this.renderer.setSize(window.innerWidth * 0.8, window.innerHeight * 0.6);
+      // Specific to bug model (https://codepen.io/shshaw/pen/yPPOEg)
+      // this.renderer.toneMapping = THREE.LinearToneMapping;
+      // this.renderer.toneMappingExposure = Math.pow(0.94, 5.0);
+      // this.renderer.shadowMap.enabled = true;
+      // this.renderer.shadowMap.type = THREE.PCFShadowMap;
+
+      // Loading model
+      loader.load(
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/39255/ladybug.gltf",
+        // We need to use arrow functions otherwise "this" refers to loader and not the Vue instance
+        (gltf) => {
+          // this.scene.add(gltf.scene);
+
+          // gltf.animations; // Array<THREE.AnimationClip>
+          // gltf.scene; // THREE.Scene
+          // gltf.scenes; // Array<THREE.Scene>
+          // gltf.cameras; // Array<THREE.Camera>
+          // gltf.asset; // Object
+          console.log(gltf.scene);
+          var object = gltf.scene;
+          // object.position.set(1, -5, -0.75);
+          // let car = gltf.scene.children[0];
+          // car.scale.set(0.5, 0.5, 0.5);
+          this.scene.add(object);
+          this.animate();
+        },
+        (xhr) => {
+          console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+      // Controls
+      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+      this.controls.rotateSpeed = 0.3;
+      this.controls.zoomSpeed = 0.9;
+
+      this.controls.minDistance = 3;
+      this.controls.maxDistance = 20;
+
+      this.controls.minPolarAngle = 0; // radians
+      this.controls.maxPolarAngle = Math.PI / 2; // radians
+
+      this.controls.enableDamping = true;
+      this.controls.dampingFactor = 0.05;
+    },
+    animate() {
+      requestAnimationFrame(this.animate);
+      // console.log(this.scene)
+      this.controls.update();
+      this.renderer.render(this.scene, this.camera);
+    },
+  },
+  mounted() {
+    this.init();
+    this.animate();
+  },
+};
+</script>
+<style scoped>
+.canvas {
+  position: absolute;
+  width: 80vw;
+  height: 60vh;
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
