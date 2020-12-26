@@ -39,7 +39,6 @@ export default {
 
 <style lang="scss">
 body {
-  height: 300vh;
   background-color: #814200;
   background-color: #7bd8ff;
   background-color: white;

@@ -23,6 +23,7 @@ export default {
       pageWidth: 0,
       viewportWidth: 0,
       duplicates: false,
+      isTouch: false,
     };
   },
   /**
@@ -48,6 +49,8 @@ export default {
     window.addEventListener(
       "scroll",
       () => {
+        console.log("event");
+        console.log(event);
         vm.scrollHandler();
       },
       true
@@ -59,9 +62,18 @@ export default {
      */
 
     scrollHandler() {
-      if (window.scrollY >= this.viewportHeight * 2 - 200) {
+      console.log(window.scrollY);
+      // const container = this.$el;
+      // var y = container.scrollTop;
+      // console.log(window.scrollY);
+      console.log(window.innerHeight * 2);
+      if (window.scrollY > window.innerHeight * 2 - 60) {
         window.scroll(0, 0);
       }
+      //   container.scrollTop = y % this.pageHeight;
+      // } else if (y + this.viewportHeight == this.pageHeight) {
+      //   container.scrollTop = 0;
+      // }
     },
     /**
      * Get dimentions of the page and viewport
@@ -69,7 +81,34 @@ export default {
 
     getDimensions() {
       const vm = this;
-      vm.viewportHeight = window.innerHeight;
+      const container = vm.$el;
+      if (vm.duplicates === false) {
+        // vm.duplicates = vm.makeDuplicates();
+      }
+      const numOfItems = container.querySelectorAll(".item").length - vm.duplicates;
+      for (var i = 0; i < numOfItems; i++) {
+        const itemWidth = container.querySelectorAll(".item")[i].clientWidth;
+        const itemHeight = container.querySelectorAll(".item")[i].clientHeight;
+        vm.pageHeight = vm.pageHeight + itemHeight;
+        vm.pageWidth = vm.pageWidth + itemWidth;
+      }
+
+      vm.viewportHeight = container.clientHeight;
+      vm.viewportWidth = container.clientWidth;
+    },
+    /**
+     * Make duplicates so the scroll is smooth
+     */
+
+    makeDuplicates() {
+      const container = this.$el;
+      var containerSize = container.clientHeight;
+      var itemSize = container.childNodes[0].clientHeight;
+      var division = containerSize / itemSize;
+      for (var i = 0; i < division + 1; i++) {
+        container.appendChild(container.childNodes[i].cloneNode(true));
+      }
+      return division;
     },
   },
 };

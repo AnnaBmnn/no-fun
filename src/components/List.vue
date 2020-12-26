@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       contentNoFun: "no fun no fun no fun no fun no fun no fun",
-      contentFun: "fun no fun no fun no fun no fun no fun",
+      contentFun: "fun fun fun fun fun fun ",
     };
   },
   methods: {},
@@ -46,10 +46,10 @@ export default {
   text-transform: uppercase;
   color: black;
 }
-.list__item:nth-child(odd) {
-  transform: skewX(20deg);
-}
 .list__item:nth-child(even) {
-  transform: skewX(-20deg);
+  transform: skewX(60deg);
+}
+.list__item:nth-child(odd) {
+  /* transform: skewX(-60deg); */
 }
 </style>
