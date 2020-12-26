@@ -2,7 +2,7 @@
   <div id="app">
     <Logo />
     <Projet />
-    <List />
+    <Loop><List v-for="n in 3" :key="n"/></Loop>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import List from "./components/List.vue";
 import Projet from "./components/Projet.vue";
 import Logo from "./components/Logo.vue";
-// import Loop from "./components/Loop.vue";
+import Loop from "./components/Loop.vue";
 
 export default {
   name: "app",
@@ -18,6 +18,7 @@ export default {
     List,
     Logo,
     Projet,
+    Loop,
   },
   created() {
     let timer = 0;
@@ -38,6 +39,7 @@ export default {
 
 <style lang="scss">
 body {
+  height: 300vh;
   background-color: #814200;
   background-color: #7bd8ff;
   background-color: white;

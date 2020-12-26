@@ -23,7 +23,6 @@ export default {
       pageWidth: 0,
       viewportWidth: 0,
       duplicates: false,
-      isTouch: false,
     };
   },
   /**
@@ -46,10 +45,9 @@ export default {
       true
     );
     //When the element is scrolled
-    vm.$el.addEventListener(
+    window.addEventListener(
       "scroll",
       () => {
-        console.log(event);
         vm.scrollHandler();
       },
       true
@@ -61,12 +59,8 @@ export default {
      */
 
     scrollHandler() {
-      const container = this.$el;
-      var y = container.scrollTop;
-      if (y + this.viewportHeight > this.pageHeight) {
-        container.scrollTop = y % this.pageHeight;
-      } else if (y + this.viewportHeight == this.pageHeight) {
-        container.scrollTop = 0;
+      if (window.scrollY >= this.viewportHeight * 2 - 200) {
+        window.scroll(0, 0);
       }
     },
     /**
@@ -75,34 +69,7 @@ export default {
 
     getDimensions() {
       const vm = this;
-      const container = vm.$el;
-      if (vm.duplicates === false) {
-        vm.duplicates = vm.makeDuplicates();
-      }
-      const numOfItems = container.querySelectorAll(".item").length - vm.duplicates;
-      for (var i = 0; i < numOfItems; i++) {
-        const itemWidth = container.querySelectorAll(".item")[i].clientWidth;
-        const itemHeight = container.querySelectorAll(".item")[i].clientHeight;
-        vm.pageHeight = vm.pageHeight + itemHeight;
-        vm.pageWidth = vm.pageWidth + itemWidth;
-      }
-
-      vm.viewportHeight = container.clientHeight;
-      vm.viewportWidth = container.clientWidth;
-    },
-    /**
-     * Make duplicates so the scroll is smooth
-     */
-
-    makeDuplicates() {
-      const container = this.$el;
-      var containerSize = container.clientHeight;
-      var itemSize = container.childNodes[0].clientHeight;
-      var division = containerSize / itemSize;
-      for (var i = 0; i < division + 1; i++) {
-        container.appendChild(container.childNodes[i].cloneNode(true));
-      }
-      return division;
+      vm.viewportHeight = window.innerHeight;
     },
   },
 };
@@ -111,7 +78,7 @@ export default {
 <style>
 .loop-container {
   display: block;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   -webkit-overflow-scrolling: touch;
 }
 .loop-container.full {
@@ -132,16 +99,5 @@ export default {
   flex: 1;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
-}
-.loop-container.horizontal {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  overflow-x: scroll;
-}
-.loop-container.full.horizontal > .item {
-  min-width: 100%;
-  flex: 1;
 }
 </style>
