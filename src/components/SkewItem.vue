@@ -33,7 +33,9 @@ export default {
       clamp = gsap.utils.clamp(-80, 80); // don't let the skew go beyond 20 degrees.
 
     ScrollTrigger.create({
+      scrub: true,
       onUpdate: (self) => {
+        console.log(self.getVelocity());
         let skew = clamp(
           this.skewBase * this.sign + Math.abs(self.getVelocity() * 0.01) * this.sign
         );

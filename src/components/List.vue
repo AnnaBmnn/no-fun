@@ -26,16 +26,14 @@ export default {
     };
   },
   methods: {},
-  mounted() {
-    console.log("this.$refs");
-  },
+  mounted() {},
 };
 </script>
 
 <style scoped>
 .list {
-  height: 500vh;
-  /* overflow: hidden; */
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   width: 100vw;
