@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       contentNoFun: "no fun no fun no fun no fun no fun no fun",
-      contentFun: "fun fun fun fun fun fun fun fun",
+      contentFun: "fun no fun no fun no fun no fun no fun",
     };
   },
   methods: {},

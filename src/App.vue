@@ -37,12 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-// @font-face {
-//   font-family: "Migra";
-//   src: local("Migra"), url(./assets/fonts/Migra/Migra-Regular.ttf) format("truetype");
-// }
 body {
-  // font-family: "Migra";
   background-color: #814200;
   background-color: #7bd8ff;
   background-color: white;
@@ -50,5 +45,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   white-space: nowrap;
+  font-family: Times, "Times New Roman", Georgia, serif;
 }
 </style>

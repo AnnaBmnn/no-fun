@@ -42,6 +42,7 @@ export default {
           proxy.skew = skew;
           gsap.to(proxy, {
             skew: this.sign * this.skewBase,
+            translateX: self.getVelocity() + "px",
             duration: 3,
             ease: "power3",
             overwrite: true,

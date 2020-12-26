@@ -1,6 +1,11 @@
 <template>
-  <div class="projet">
-    <h2 class="projet__title">ego solitaire</h2>
+  <div class="projet__container">
+    <div class="projet">
+      <h2 class="projet__title">ego solitaire</h2>
+    </div>
+    <div class="projet">
+      <h2 class="projet__title">un autre projet</h2>
+    </div>
   </div>
 </template>
 
@@ -16,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-.projet {
+.projet__container {
   pointer-events: none;
   position: fixed;
   width: 90vw;
@@ -26,7 +31,13 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 4;
 }
+.projet {
+  margin-bottom: 2vw;
+  z-index: 10;
+}
 .projet__title {
+  z-index: 10;
+  position: relative;
   pointer-events: initial;
   font-weight: normal;
   font-size: 3.5vw;
