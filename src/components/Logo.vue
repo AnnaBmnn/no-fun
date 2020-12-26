@@ -17,11 +17,11 @@ export default {
 .logo {
   z-index: 10;
   position: fixed;
-  right: 5vw;
-  top: 5vh;
+  right: 2.5vw;
+  top: 4vh;
   color: #ff38ee;
   font-size: 5vw;
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
   border-radius: 50%;
   padding: 0 2vw;
 }

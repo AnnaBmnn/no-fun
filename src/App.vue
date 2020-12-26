@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Logo />
-    <List />
     <Projet />
+    <List />
   </div>
 </template>
 
@@ -10,13 +10,28 @@
 import List from "./components/List.vue";
 import Projet from "./components/Projet.vue";
 import Logo from "./components/Logo.vue";
+// import Loop from "./components/Loop.vue";
 
 export default {
   name: "app",
   components: {
     List,
-    Projet,
     Logo,
+    Projet,
+  },
+  created() {
+    let timer = 0;
+    // const titleString = "NO-FUN-NO-FUN-";
+    // let titleArray = ["NO", "-", "FUN", "-", "NO", "-", "FUN", "-"];
+    // let titleArray = Array.from(titleString);
+    setInterval(function() {
+      timer += 1;
+      // let firstLetter = titleArray[0];
+      // titleArray.shift();
+      // titleArray.push(firstLetter);
+      // document.title = titleArray.join("");
+      document.title = timer % 2 === 0 ? "FUN NO" : "NO FUN";
+    }, 500);
   },
 };
 </script>

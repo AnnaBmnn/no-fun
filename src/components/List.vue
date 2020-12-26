@@ -1,73 +1,41 @@
 <template>
-  <ul class="list">
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
-    <li class="list__item">no fun no fun no fun no fun no fun no fun</li>
-    <li class="list__item">fun fun fun fun fun no fun no fun no fun</li>
+  <ul class="list item">
+    <SkewItem
+      v-for="n in 100"
+      :content="n % 2 == 0 ? contentNoFun : contentFun"
+      :sign="n % 2 == 0 ? 1 : -1"
+      class="list__item"
+      :key="n"
+    >
+    </SkewItem>
   </ul>
 </template>
 
 <script>
+import SkewItem from "./SkewItem.vue";
+
 export default {
   name: "List",
+  components: {
+    SkewItem,
+  },
   data() {
-    return {};
+    return {
+      contentNoFun: "no fun no fun no fun no fun no fun no fun",
+      contentFun: "fun fun fun fun fun fun fun fun",
+    };
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    console.log("this.$refs");
+  },
 };
 </script>
 
 <style scoped>
 .list {
+  height: 500vh;
+  /* overflow: hidden; */
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -75,7 +43,7 @@ export default {
 .list__item {
   margin: 0;
   list-style: none;
-  font-size: 13vw;
+  font-size: 24vh;
   line-height: 0.7;
   text-transform: uppercase;
   color: black;

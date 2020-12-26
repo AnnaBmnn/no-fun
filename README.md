@@ -1,4 +1,4 @@
-# threejs-albert
+# (no)fun
 
 ## Project setup
 ```
