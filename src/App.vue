@@ -2,12 +2,14 @@
   <div id="app">
     <Logo />
     <Projet />
-    <Loop><List v-for="n in 3" :key="n"/></Loop>
+    <Loop>
+      <Fold />
+    </Loop>
   </div>
 </template>
 
 <script>
-import List from "./components/List.vue";
+import Fold from "./components/Fold.vue";
 import Projet from "./components/Projet.vue";
 import Logo from "./components/Logo.vue";
 import Loop from "./components/Loop.vue";
@@ -15,7 +17,7 @@ import Loop from "./components/Loop.vue";
 export default {
   name: "app",
   components: {
-    List,
+    Fold,
     Logo,
     Projet,
     Loop,
@@ -39,6 +41,7 @@ export default {
 
 <style lang="scss">
 body {
+  height: 300vh;
   background-color: #814200;
   background-color: #7bd8ff;
   background-color: white;

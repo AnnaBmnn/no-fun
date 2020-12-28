@@ -27,6 +27,7 @@ export default {
   width: 100vw;
 }
 .list__item {
+  overflow: hidden;
   margin: 0;
   list-style: none;
   font-size: 24vh;

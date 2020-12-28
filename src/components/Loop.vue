@@ -67,7 +67,7 @@ export default {
       // var y = container.scrollTop;
       // console.log(window.scrollY);
       console.log(window.innerHeight * 2);
-      if (window.scrollY > window.innerHeight * 2 - 60) {
+      if (window.scrollY > window.innerHeight * 2 - window.innerHeight * 0.02) {
         window.scroll(0, 0);
       }
       //   container.scrollTop = y % this.pageHeight;

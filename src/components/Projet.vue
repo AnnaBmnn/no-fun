@@ -63,4 +63,19 @@ export default {
   height: 30vw;
   background-color: white;
 }
+@media screen and (max-width: 900px) {
+  .projet__title {
+    font-size: 8.5vw;
+    padding: 0 4vw 0.3vw;
+    margin-bottom: 4vw;
+    border-radius: 6vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .projet__title {
+    font-size: 12vw;
+    padding: 0 5vw 0.3vw;
+    border-radius: 7vw;
+  }
+}
 </style>
