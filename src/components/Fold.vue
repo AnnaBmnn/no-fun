@@ -7,7 +7,7 @@
         :index="n"
         :scrollAmount="scrollAmount"
         :sign="n % 2 == 0 ? 0 : 1"
-        animationType="animation3d"
+        :animationType="animationType"
         class="list__item"
       >
       </FoldItem>
@@ -28,7 +28,18 @@ export default {
       scrollAmount: 0,
       contentNoFun: "no fun no fun no fun no fun no fun no fun",
       contentFun: "fun fun fun fun fun fun ",
+      animations: ["animationFlat", "animationHorizontal", "animation3d"],
     };
+  },
+  computed: {
+    // un accesseur (getter) calculé
+    animationType: function() {
+      // `this` pointe sur l'instance vm
+      const animationsLength = this.animations.length;
+      const randomIndex = Math.floor(Math.random() * Math.floor(animationsLength));
+      console.log(randomIndex);
+      return this.animations[randomIndex];
+    },
   },
   mounted() {
     const vm = this;

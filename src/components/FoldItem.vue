@@ -53,6 +53,12 @@ export default {
             ? `translate(0px, -${this.newScrollValue}px)`
             : `skew(60deg) translate(-${this.newScrollValue}px, -${this.newScrollValue}px)`;
         this.$refs.animationFlat.style.transform = transform;
+      } else if (this.animationType === "animationHorizontal") {
+        const transform =
+          this.sign % 2 == 1
+            ? `translate(-0px, -${this.newScrollValue}px) skew(20deg) `
+            : `translate(-${this.newScrollValue}px, -${this.newScrollValue}px) skew(-20deg) `;
+        this.$refs.animationFlat.style.transform = transform;
       } else {
         const transform = ` translate(0px, -${this.newScrollValue}px)`;
         this.$refs.animation3d.style.transform = transform;
@@ -92,6 +98,14 @@ export default {
 }
 .list__item:nth-child(odd) {
   /* transform: skewX(-60deg); */
+}
+
+.animationHorizontal.list__item:nth-child(odd) {
+  transform: skewX(20deg);
+}
+
+.animationHorizontal.list__item:nth-child(even) {
+  transform: skewX(-20deg);
 }
 
 .animation3d.list__item.list__item--1 {
