@@ -8,7 +8,7 @@
 <script>
 import * as THREE from "three";
 import { VShader } from "../assets/shader/vertex/bloup.vert";
-// import { FBaseShader } from "../assets/shader/fragment/base.frag";
+import { FBaseShader } from "../assets/shader/fragment/base.frag";
 import { FBaseVideoShader } from "../assets/shader/fragment/baseVideo.frag";
 import OrbitControls from "three-orbitcontrols";
 
@@ -91,7 +91,7 @@ export default {
       // shader materials
       this.shaderMaterial = new THREE.ShaderMaterial({
         vertexShader: VShader,
-        fragmentShader: FBaseVideoShader,
+        fragmentShader: FBaseShader,
         uniforms: {
           uTime: { value: this.time },
           tex0: { type: "t", value: null },
@@ -133,10 +133,27 @@ export default {
         this.texture.minFilter = THREE.LinearFilter;
         this.texture.magFilter = THREE.LinearFilter;
         this.texture.format = THREE.RGBFormat;
-        this.shaderMaterial.uniforms.tex0.value = this.texture;
+        this.shaderMaterial = new THREE.ShaderMaterial({
+          vertexShader: VShader,
+          fragmentShader: FBaseVideoShader,
+          uniforms: {
+            uTime: { value: this.time },
+            tex0: { type: "t", value: this.texture },
+          },
+        });
+        this.mesh.material = this.shaderMaterial;
       } else {
         // Shader
         this.texture = null;
+        this.shaderMaterial = new THREE.ShaderMaterial({
+          vertexShader: VShader,
+          fragmentShader: FBaseShader,
+          uniforms: {
+            uTime: { value: this.time },
+            tex0: { type: "t", value: null },
+          },
+        });
+        this.mesh.material = this.shaderMaterial;
       }
     },
     getPermissonWebcam() {
