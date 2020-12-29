@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <Logo />
+    <ThreeJsContainer />
+
     <Projet />
     <Loop>
       <Fold />
@@ -9,6 +11,7 @@
 </template>
 
 <script>
+import ThreeJsContainer from "./components/ThreeJSContainer.vue";
 import Fold from "./components/Fold.vue";
 import Projet from "./components/Projet.vue";
 import Logo from "./components/Logo.vue";
@@ -21,6 +24,7 @@ export default {
     Logo,
     Projet,
     Loop,
+    ThreeJsContainer,
   },
   created() {
     let timer = 0;
