@@ -49,8 +49,6 @@ export default {
     window.addEventListener(
       "scroll",
       () => {
-        console.log("event");
-        console.log(event);
         vm.scrollHandler();
       },
       true
@@ -62,18 +60,9 @@ export default {
      */
 
     scrollHandler() {
-      console.log(window.scrollY);
-      // const container = this.$el;
-      // var y = container.scrollTop;
-      // console.log(window.scrollY);
-      console.log(window.innerHeight * 2);
       if (window.scrollY > window.innerHeight * 2 - window.innerHeight * 0.02) {
         window.scroll(0, 0);
       }
-      //   container.scrollTop = y % this.pageHeight;
-      // } else if (y + this.viewportHeight == this.pageHeight) {
-      //   container.scrollTop = 0;
-      // }
     },
     /**
      * Get dimentions of the page and viewport

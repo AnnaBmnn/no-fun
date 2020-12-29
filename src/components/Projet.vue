@@ -1,7 +1,7 @@
 <template>
   <div class="projet__container">
     <div class="projet">
-      <h2 class="projet__title">ego solitaire</h2>
+      <h2 class="projet__title">Petit bloup</h2>
     </div>
     <div class="projet">
       <h2 class="projet__title">un autre projet</h2>

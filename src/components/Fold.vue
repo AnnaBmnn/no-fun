@@ -37,7 +37,6 @@ export default {
       // `this` pointe sur l'instance vm
       const animationsLength = this.animations.length;
       const randomIndex = Math.floor(Math.random() * Math.floor(animationsLength));
-      console.log(randomIndex);
       return this.animations[randomIndex];
     },
   },
@@ -72,8 +71,6 @@ export default {
 
     scrollHandler() {
       this.scrollAmount = window.scrollY;
-
-      console.log(window.pageYOffset);
     },
   },
 };
