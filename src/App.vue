@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Logo />
-    <ThreeJsContainer />
 
     <Projet />
     <Loop>
@@ -11,7 +10,6 @@
 </template>
 
 <script>
-import ThreeJsContainer from "./components/ThreeJSContainer.vue";
 import Fold from "./components/Fold.vue";
 import Projet from "./components/Projet.vue";
 import Logo from "./components/Logo.vue";
@@ -24,7 +22,6 @@ export default {
     Logo,
     Projet,
     Loop,
-    ThreeJsContainer,
   },
   created() {
     let timer = 0;
@@ -37,7 +34,7 @@ export default {
       // titleArray.shift();
       // titleArray.push(firstLetter);
       // document.title = titleArray.join("");
-      document.title = timer % 2 === 0 ? "FUN NO" : "NO FUN";
+      document.title = timer % 2 === 0 ? "FUN" : "NO FUN";
     }, 500);
   },
 };

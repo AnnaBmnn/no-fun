@@ -1,21 +1,76 @@
 <template>
-  <div class="projet__container">
-    <div class="projet">
-      <h2 class="projet__title">Petit bloup</h2>
+  <div>
+    <div class="projet__container">
+      <Button
+        v-on:change-index="onChangeIndex"
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
+        :currentProject="currentProjectIndex"
+      />
     </div>
-    <div class="projet">
-      <h2 class="projet__title">un autre projet</h2>
-    </div>
+    <ThreeJsContainer
+      :fragmentShader="currentProject ? currentProject.fragmentShader : null"
+      :vertexShader="currentProject ? currentProject.vertexShader : null"
+      v-show="currentProject !== null"
+    />
   </div>
 </template>
 
 <script>
+import ThreeJsContainer from "../components/ThreeJSContainer.vue";
+import Button from "../components/Button.vue";
+import { VBigBloupShader } from "../assets/shader/vertex/bigbloup.vert";
+import { VShader } from "../assets/shader/vertex/bloup.vert";
+
 export default {
   name: "Projet",
-  data() {
-    return {};
+  components: {
+    ThreeJsContainer,
+    Button,
   },
-  methods: {},
+  watch: {
+    currentProjectIndex: function(newIndex) {
+      this.currentProject = this.projects[newIndex] ? this.projects[newIndex] : null;
+    },
+  },
+  data() {
+    return {
+      currentVertexShader: null,
+      currentFragmentShader: null,
+      currentProjectIndex: null,
+      currentProject: null,
+      projects: [
+        {
+          id: 0,
+          title: "Projet 0",
+          vertexShader: VBigBloupShader,
+          fragmentShader: "fragmentshader0",
+        },
+        {
+          id: 1,
+          title: "Projet 1",
+          vertexShader: VBigBloupShader,
+          fragmentShader: "fragmentshader1",
+        },
+        {
+          id: 2,
+          title: "Projet 2",
+          vertexShader: VShader,
+          fragmentShader: "fragmentshader2",
+        },
+      ],
+    };
+  },
+  methods: {
+    onChangeIndex(newIndex) {
+      if (this.currentProjectIndex === newIndex) {
+        this.currentProjectIndex = null;
+      } else {
+        this.currentProjectIndex = newIndex;
+      }
+    },
+  },
   mounted() {},
 };
 </script>

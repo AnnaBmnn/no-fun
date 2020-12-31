@@ -34,7 +34,28 @@ export default {
       permissionState: false,
     };
   },
+  props: {
+    vertexShader: {
+      type: String,
+      require: false,
+    },
+    fragmentShader: {
+      type: String,
+      require: false,
+    },
+  },
   watch: {
+    vertexShader: function(newVertexShader) {
+      this.shaderMaterial = new THREE.ShaderMaterial({
+        vertexShader: newVertexShader,
+        fragmentShader: FBaseVideoShader,
+        uniforms: {
+          uTime: { value: this.time },
+          tex0: { type: "t", value: this.texture },
+        },
+      });
+      this.mesh.material = this.shaderMaterial;
+    },
     isWebcamAllowed: function() {
       if (this.isWebcamAllowed) {
         this.setWebcam();
@@ -180,8 +201,11 @@ export default {
     this.init();
     this.animate();
     this.getPermissonWebcam();
-    if (this.permissionState == "denied") {
-      this.setWebcam();
+    console.log(this.permissionState);
+
+    if (this.permissionState == false) {
+      // console.log("here");
+      // this.setWebcam();
     }
   },
 };
