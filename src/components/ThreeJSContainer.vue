@@ -22,6 +22,8 @@ export default {
       renderer: null,
       geometry: null,
       texture: null,
+      vertexShader: null,
+      fragmentSahder: null,
       shaderMaterial: null,
       mesh: null,
       hlight: null,
@@ -35,26 +37,19 @@ export default {
     };
   },
   props: {
-    vertexShader: {
+    currentVertexShader: {
       type: String,
       require: false,
     },
-    fragmentShader: {
+    currentFragmentShader: {
       type: String,
       require: false,
     },
   },
   watch: {
-    vertexShader: function(newVertexShader) {
-      this.shaderMaterial = new THREE.ShaderMaterial({
-        vertexShader: newVertexShader,
-        fragmentShader: FBaseVideoShader,
-        uniforms: {
-          uTime: { value: this.time },
-          tex0: { type: "t", value: this.texture },
-        },
-      });
-      this.mesh.material = this.shaderMaterial;
+    currentVertexShader: function(newVertexShader) {
+      this.vertexShader = newVertexShader;
+      this.setShaderMaterial();
     },
     isWebcamAllowed: function() {
       if (this.isWebcamAllowed) {
@@ -110,14 +105,9 @@ export default {
       this.videoDomElement.style.display = "none";
 
       // shader materials
-      this.shaderMaterial = new THREE.ShaderMaterial({
-        vertexShader: VShader,
-        fragmentShader: FBaseShader,
-        uniforms: {
-          uTime: { value: this.time },
-          tex0: { type: "t", value: null },
-        },
-      });
+      this.vertexShader = VShader;
+      this.fragmentShader = FBaseShader;
+      this.setShaderMaterial();
 
       // Mesh
       this.mesh = new THREE.Mesh(this.geometry, this.shaderMaterial);
@@ -154,28 +144,13 @@ export default {
         this.texture.minFilter = THREE.LinearFilter;
         this.texture.magFilter = THREE.LinearFilter;
         this.texture.format = THREE.RGBFormat;
-        this.shaderMaterial = new THREE.ShaderMaterial({
-          vertexShader: VShader,
-          fragmentShader: FBaseVideoShader,
-          uniforms: {
-            uTime: { value: this.time },
-            tex0: { type: "t", value: this.texture },
-          },
-        });
-        this.mesh.material = this.shaderMaterial;
+        this.fragmentShader = FBaseVideoShader;
       } else {
         // Shader
         this.texture = null;
-        this.shaderMaterial = new THREE.ShaderMaterial({
-          vertexShader: VShader,
-          fragmentShader: FBaseShader,
-          uniforms: {
-            uTime: { value: this.time },
-            tex0: { type: "t", value: null },
-          },
-        });
-        this.mesh.material = this.shaderMaterial;
+        this.fragmentShader = FBaseShader;
       }
+      this.setShaderMaterial();
     },
     getPermissonWebcam() {
       const isSafari = /apple/i.test(navigator.vendor);
@@ -196,6 +171,19 @@ export default {
         this.toggleTextureWebcam();
       }
     },
+    setShaderMaterial() {
+      this.shaderMaterial = new THREE.ShaderMaterial({
+        vertexShader: this.vertexShader,
+        fragmentShader: this.fragmentShader,
+        uniforms: {
+          uTime: { value: this.time },
+          tex0: { type: "t", value: this.texture },
+        },
+      });
+      if (this.mesh !== null) {
+        this.mesh.material = this.shaderMaterial;
+      }
+    },
   },
   mounted() {
     this.init();
@@ -206,6 +194,7 @@ export default {
     if (this.permissionState == false) {
       // console.log("here");
       // this.setWebcam();
+      // this.toggleTextureWebcam();
     }
   },
 };

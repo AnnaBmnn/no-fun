@@ -10,8 +10,8 @@
       />
     </div>
     <ThreeJsContainer
-      :fragmentShader="currentProject ? currentProject.fragmentShader : null"
-      :vertexShader="currentProject ? currentProject.vertexShader : null"
+      :currentFragmentShader="currentProject ? currentProject.fragmentShader : null"
+      :currentVertexShader="currentProject ? currentProject.vertexShader : null"
       v-show="currentProject !== null"
     />
   </div>
@@ -36,26 +36,18 @@ export default {
   },
   data() {
     return {
-      currentVertexShader: null,
-      currentFragmentShader: null,
       currentProjectIndex: null,
       currentProject: null,
       projects: [
         {
           id: 0,
-          title: "Projet 0",
+          title: "square / circle",
           vertexShader: VBigBloupShader,
           fragmentShader: "fragmentshader0",
         },
         {
           id: 1,
-          title: "Projet 1",
-          vertexShader: VBigBloupShader,
-          fragmentShader: "fragmentshader1",
-        },
-        {
-          id: 2,
-          title: "Projet 2",
+          title: "bloup",
           vertexShader: VShader,
           fragmentShader: "fragmentshader2",
         },
