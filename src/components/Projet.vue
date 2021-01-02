@@ -21,6 +21,7 @@
 import ThreeJsContainer from "../components/ThreeJSContainer.vue";
 import Button from "../components/Button.vue";
 import { VBigBloupShader } from "../assets/shader/vertex/bigbloup.vert";
+import { VProject3Shader } from "../assets/shader/vertex/project3.vert";
 import { VShader } from "../assets/shader/vertex/bloup.vert";
 
 export default {
@@ -36,8 +37,13 @@ export default {
   },
   data() {
     return {
-      currentProjectIndex: null,
-      currentProject: null,
+      currentProjectIndex: 0,
+      currentProject: {
+        id: 0,
+        title: "●◼️",
+        vertexShader: VBigBloupShader,
+        fragmentShader: "fragmentshader0",
+      },
       projects: [
         {
           id: 0,
@@ -49,6 +55,12 @@ export default {
           id: 1,
           title: "bloup",
           vertexShader: VShader,
+          fragmentShader: "fragmentshader2",
+        },
+        {
+          id: 2,
+          title: "serpent(1)",
+          vertexShader: VProject3Shader,
           fragmentShader: "fragmentshader2",
         },
       ],

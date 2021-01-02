@@ -7,7 +7,7 @@
 
 <script>
 import * as THREE from "three";
-import { VShader } from "../assets/shader/vertex/bloup.vert";
+// import { VShader } from "../assets/shader/vertex/bloup.vert";
 import { FBaseShader } from "../assets/shader/fragment/base.frag";
 import { FBaseVideoShader } from "../assets/shader/fragment/baseVideo.frag";
 import OrbitControls from "three-orbitcontrols";
@@ -105,7 +105,7 @@ export default {
       this.videoDomElement.style.display = "none";
 
       // shader materials
-      this.vertexShader = VShader;
+      this.vertexShader = this.currentVertexShader;
       this.fragmentShader = FBaseShader;
       this.setShaderMaterial();
 
@@ -159,6 +159,9 @@ export default {
       if (!isSafari && !isFirefox) {
         navigator.permissions.query({ name: "camera" }).then((res) => {
           this.permissionState = res.state;
+          if (res.state === "denied") {
+            this.setWebcam();
+          }
           res.onchange = (e) => {
             // detecting if the event is a change
             if (e.type === "change") {

@@ -12,6 +12,6 @@ void main()
   // Make the distance field
   d = length( abs(st)-.3 );
 
-  gl_FragColor = vec4(vec3(fract(d*10.0)),1.0);
+  gl_FragColor = vec4(vec3(fract(d*10.0)),0.9);
 
 }`;

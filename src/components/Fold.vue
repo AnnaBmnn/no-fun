@@ -35,9 +35,10 @@ export default {
     // un accesseur (getter) calculé
     animationType: function() {
       // `this` pointe sur l'instance vm
-      const animationsLength = this.animations.length;
-      const randomIndex = Math.floor(Math.random() * Math.floor(animationsLength));
-      return this.animations[randomIndex];
+      // const animationsLength = this.animations.length;
+      // const randomIndex = Math.floor(Math.random() * Math.floor(animationsLength));
+      // return this.animations[randomIndex];
+      return "2";
     },
   },
   mounted() {
@@ -78,10 +79,10 @@ export default {
 
 <style scoped>
 .list__container {
-  height: 500vh;
+  height: 100vh;
 }
 .list {
-  height: 500vh;
+  height: 100vh;
   overflow-y: hidden;
   margin: 0;
   padding: 0;
