@@ -1,7 +1,7 @@
 <template>
   <ul class="list item">
     <SkewItem
-      v-for="n in 100"
+      v-for="n in 7"
       :content="n % 2 == 0 ? contentNoFun : contentFun"
       :sign="n % 2 == 0 ? 1 : -1"
       class="list__item"

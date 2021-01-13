@@ -2,7 +2,7 @@
   <div ref="container" class="list__container">
     <ul class="list item">
       <FoldItem
-        v-for="n in 20"
+        v-for="n in 7"
         :key="n"
         :index="n"
         :scrollAmount="scrollAmount"

@@ -1,7 +1,7 @@
 <template>
   <li ref="animationFlat" :class="`list__item list__item--${index} ${animationType}`">
     <div class="content" ref="animation3d">
-      <div v-for="n in 20" :key="n">
+      <div v-for="n in 2" :key="n">
         {{ (n + sign) % 2 == 0 ? contentFun : contentNoFun }}
       </div>
     </div>
@@ -47,22 +47,22 @@ export default {
   },
   methods: {
     animate: function() {
-      if (this.animationType === "animationFlat") {
-        const transform =
-          this.sign % 2 == 1
-            ? `translate(0px, -${this.newScrollValue}px)`
-            : `skew(60deg) translate(-${this.newScrollValue}px, -${this.newScrollValue}px)`;
-        this.$refs.animationFlat.style.transform = transform;
-      } else if (this.animationType === "animationHorizontal") {
-        const transform =
-          this.sign % 2 == 1
-            ? `translate(-0px, -${this.newScrollValue}px) skew(20deg) `
-            : `translate(-${this.newScrollValue}px, -${this.newScrollValue}px) skew(-20deg) `;
-        this.$refs.animationFlat.style.transform = transform;
-      } else {
-        const transform = ` translate(0px, -${this.newScrollValue}px)`;
-        this.$refs.animation3d.style.transform = transform;
-      }
+      // if (this.animationType === "animationFlat") {
+      //   const transform =
+      //     this.sign % 2 == 1
+      //       ? `translate(0px, -${this.newScrollValue}px)`
+      //       : `skew(60deg) translate(-${this.newScrollValue}px, -${this.newScrollValue}px)`;
+      //   this.$refs.animationFlat.style.transform = transform;
+      // } else if (this.animationType === "animationHorizontal") {
+      //   const transform =
+      //     this.sign % 2 == 1
+      //       ? `translate(-0px, -${this.newScrollValue}px) skew(20deg) `
+      //       : `translate(-${this.newScrollValue}px, -${this.newScrollValue}px) skew(-20deg) `;
+      //   this.$refs.animationFlat.style.transform = transform;
+      // } else {
+      const transform = ` translate(0px, -${this.newScrollValue}px)`;
+      this.$refs.animation3d.style.transform = transform;
+      // }
     },
   },
 };

@@ -1,19 +1,28 @@
 <template>
   <div>
     <div class="projet__container">
-      <Button
-        v-on:change-index="onChangeIndex"
-        v-for="project in projects"
-        :key="project.id"
-        :project="project"
-        :currentProject="currentProjectIndex"
+      <ThreeJsContainer
+        :currentFragmentShader="currentProject ? currentProject.fragmentShader : null"
+        :currentVertexShader="currentProject ? currentProject.vertexShader : null"
       />
+      <div v-show="showPopup" :class="`project__popup ${showPopup}`">
+        <div class="projet__title">Try something else</div>
+        <div class="projet__content">
+          <Button
+            v-on:change-index="onChangeIndex"
+            v-for="project in projects"
+            :key="project.id"
+            :project="project"
+            :currentProject="currentProjectIndex"
+          />
+        </div>
+      </div>
+      <ul class="projet__actions">
+        <li class="action__item action__item--frag" @click="showPopup = !showPopup">
+          {{ showPopup ? "bored :(" : "bored ?" }}
+        </li>
+      </ul>
     </div>
-    <ThreeJsContainer
-      :currentFragmentShader="currentProject ? currentProject.fragmentShader : null"
-      :currentVertexShader="currentProject ? currentProject.vertexShader : null"
-      v-show="currentProject !== null"
-    />
   </div>
 </template>
 
@@ -39,6 +48,7 @@ export default {
   data() {
     return {
       currentProjectIndex: 0,
+      showPopup: false,
       currentProject: {
         id: 0,
         title: "●◼️",
@@ -48,7 +58,7 @@ export default {
       projects: [
         {
           id: 0,
-          title: "square / circle",
+          title: "try",
           vertexShader: VBigBloupShader,
           fragmentShader: "fragmentshader0",
         },
@@ -76,7 +86,7 @@ export default {
   methods: {
     onChangeIndex(newIndex) {
       if (this.currentProjectIndex === newIndex) {
-        this.currentProjectIndex = null;
+        // this.currentProjectIndex = null;
       } else {
         this.currentProjectIndex = newIndex;
       }
@@ -88,60 +98,68 @@ export default {
 
 <style scoped>
 .projet__container {
-  pointer-events: none;
-  position: fixed;
-  width: 90vw;
-  height: 80vh;
-  top: 50%;
+  /* pointer-events: none; */
+  position: absolute;
+  /* width: 100vw;
+  height: 45vh;
+  top: 0%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 4;
+  transform: translate(-50%, 0%);
+  z-index: 4; */
 }
-.projet {
-  margin-bottom: 2vw;
-  z-index: 10;
+.project__popup {
+  padding: 1vw 2vw 3vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  max-height: 55vh;
+  z-index: 30;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0px 0px 30px 10px #000000;
+  box-shadow: 0px 0px 30px 10px #000000;
+  overflow-y: scroll;
 }
 .projet__title {
-  z-index: 10;
-  position: relative;
-  pointer-events: initial;
-  font-weight: normal;
-  font-size: 3.5vw;
-  -webkit-box-shadow: 0px 0px 20px 0px #2e2e2e;
-  box-shadow: 0px 0px 20px 0px #2e2e2e;
-  padding: 0 1.5vw 0.3vw;
-  margin: 0 2vw 0 0;
-  display: inline-block;
-  border-radius: 4.3vw;
-  backdrop-filter: blur(8px);
+  font-size: 10vw;
+  margin-bottom: 2vw;
+}
+.projet__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.action__item {
+  position: fixed;
+  z-index: 30;
+}
+
+.action__item--frag {
+  top: 1.5vw;
+  left: 2.5vw;
+}
+.action__item {
   cursor: pointer;
+  list-style: none;
+  background: white;
+  border: 1px solid black;
   color: black;
+  font-size: 2vw;
+  padding: 0.8vw 2vw;
+  border-radius: 52%;
+  font-family: "Helvetica", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-.projet__title:hover {
-  color: #ff38ee;
-  box-shadow: 0px 0px 30px 10px #ff38ee;
+.action__item:hover {
+  color: rgb(210, 255, 7);
+  border-color: rgb(210, 255, 7);
 }
-.projet__img {
-  width: 30vw;
-  height: 20vw;
-  position: absolute;
-  top: 10vw;
-  height: 30vw;
-  background-color: white;
+.action__item.true {
 }
 @media screen and (max-width: 900px) {
-  .projet__title {
-    font-size: 8.5vw;
-    padding: 0 4vw 0.3vw;
-    margin-bottom: 4vw;
-    border-radius: 6vw;
-  }
 }
 @media screen and (max-width: 500px) {
-  .projet__title {
-    font-size: 12vw;
-    padding: 0 5vw 0.3vw;
-    border-radius: 7vw;
-  }
 }
 </style>

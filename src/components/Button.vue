@@ -33,6 +33,7 @@ export default {
 
 <style scoped>
 .button {
+  display: inline-block;
   margin-bottom: 2vw;
   z-index: 10;
 }
@@ -41,7 +42,7 @@ export default {
   position: relative;
   pointer-events: initial;
   font-weight: normal;
-  font-size: 3.5vw;
+  font-size: 3vw;
   -webkit-box-shadow: 0px 0px 20px 0px #2e2e2e;
   box-shadow: 0px 0px 20px 0px #2e2e2e;
   padding: 0 1.5vw 0.3vw;
@@ -52,13 +53,14 @@ export default {
   cursor: pointer;
   color: black;
 }
+
 .button__title:hover {
-  color: #ff38ee;
-  box-shadow: 0px 0px 30px 10px #ff38ee;
+  color: #ff00d4;
+  box-shadow: 0px 0px 30px 10px #ff00d4;
 }
 .button__title.is-current {
-  color: #ff38ee;
-  box-shadow: 0px 0px 30px 10px #ff38ee;
+  color: #ff00d4;
+  box-shadow: 0px 0px 30px 10px #ff00d4;
 }
 
 @media screen and (max-width: 900px) {

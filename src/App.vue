@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Logo />
     <Projet />
     <Fold />
   </div>
@@ -9,14 +8,11 @@
 <script>
 import Fold from "./components/Fold.vue";
 import Projet from "./components/Projet.vue";
-import Logo from "./components/Logo.vue";
-// import Loop from "./components/Loop.vue";
 
 export default {
   name: "app",
   components: {
     Fold,
-    Logo,
     Projet,
   },
   created() {
@@ -38,7 +34,7 @@ export default {
 
 <style lang="scss">
 body {
-  height: 100vh;
+  height: é100vh;
   background-color: #814200;
   background-color: #7bd8ff;
   background-color: white;

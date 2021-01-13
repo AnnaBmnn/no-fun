@@ -79,7 +79,12 @@ export default {
       // this.scene.background = new THREE.Color(0xdddddd);
 
       // Camera
-      this.camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+      this.camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
       this.camera.position.z = 5;
 
       // Rendering
@@ -90,7 +95,7 @@ export default {
       });
       this.renderer.setClearColor(0xffffff, 0);
       this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.renderer.setSize(window.innerWidth * 0.5, window.innerWidth * 0.5);
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
 
       // Controls
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -205,13 +210,13 @@ export default {
 <style scoped>
 .canvas {
   position: fixed;
-  width: 50vw;
-  height: 50vw;
+  width: 100vw;
+  height: 100vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   outline: none;
 }
 .canvas:focus {
