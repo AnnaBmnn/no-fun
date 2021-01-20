@@ -7,7 +7,11 @@
       />
       <div
         v-show="showPopupBored"
-        :class="`project__popup project__popup--bored ${showPopupBored}`"
+        :class="
+          `project__popup project__popup--bored ${
+            isPopUpPUzzledOnTop ? 'zindextop' : ''
+          }  ${showPopupBored}`
+        "
       >
         <div class="projet__title">Try something else</div>
         <div class="projet__content">
@@ -29,32 +33,62 @@
           <li class="project__inf">
             No-FUN is a place where I transform my
             <span class="toggle-fun__container"
-              ><span class="toggle-fun__always">no-fun</span
-              ><span class="toggle-fun__hover">fun !!!</span></span
+              ><span class="toggle-fun__always">no-fun </span
+              ><span class="toggle-fun__hover"><span class="underline">no</span>-fun</span></span
             >
-            moment in very fun moment by doing shader, wich become very soon not so fun again :
-            indeed debugging shaders is a nightmare. But anyways, it’s fun again when it’s WORKS.
+            moment in a very
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always"> ☻ fun ☻ </span
+              ><span class="toggle-fun__hover">no fun</span></span
+            >
+            moment by doing shader, wich become very soon
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always">not so </span
+              ><span class="toggle-fun__hover underline">not so</span></span
+            >
+            fun
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always rotate">☻</span
+              ><span class="toggle-fun__hover ">☻</span></span
+            >
+            again : indeed debugging shaders is a nightmare. But anyways, it’s fun again when it’s
+            <br />
+            ☻☻☻ WORKS ☻☻☻.
           </li>
           <li class="project__inf">
-            I hope no-fun can help you transform your not-fun moment of doomscrolling on the world
-            wide web in very fun ego trip (lol).
+            I hope
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always">(<span class="underline">no</span>)fun </span
+              ><span class="toggle-fun__hover "><span class="">(no)fun</span> </span></span
+            >
+            can help you transform your
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always">not fun</span
+              ><span class="toggle-fun__hover "><span class="underline">not</span> fun </span></span
+            >
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always rotate"> ☻ </span
+              ><span class="toggle-fun__hover "> ☻ </span></span
+            >
+            moment of doomscrolling on the world wide web in a very fun ego trip (lol).
           </li>
           <li class="project__inf">
-            If you are still bored, and that you (dis)like (no)fun or want to chat want to chat,
-            feel free to
+            If you want to chat, feel free to ➺
             <a href="mailto:annabaumann.hello@gmail.com" class="link" target="_blank"
               >contact me
             </a>
-            and if you want to stalk, feel free to
+            <span class="rotate">➺</span>
+            and if you want to stalk, feel free to <br />
+            ➺
             <a href="https://www.instagram.com/bannabmnn.cyber/" class="link" target="_blank"
-              >stalk me</a
-            >. ˙ ͜ʟ˙
+              >stalk me </a
+            ><span class="rotate">➺</span>.
           </li>
         </ul>
       </div>
       <ul class="projet__actions">
         <li
-          class="action__item action__item--frag"
+          :class="`action__item action__item--frag ${isPopUpPUzzledOnTop ? 'zindextopbtn' : ''}`"
           ref="btnBored"
           @mouseenter="addBored = 0"
           @mouseleave="addBored = 5"
@@ -94,9 +128,20 @@ export default {
     currentProjectIndex: function(newIndex) {
       this.currentProject = this.projects[newIndex] ? this.projects[newIndex] : null;
     },
+    showPopupBored: function(newPopupBored) {
+      if (this.showPopupPuzzled == true && newPopupBored == true) {
+        this.isPopUpPUzzledOnTop = true;
+      }
+    },
+    showPopupPuzzled: function(newPopupPuzzled) {
+      if (newPopupPuzzled == false) {
+        this.isPopUpPUzzledOnTop = false;
+      }
+    },
   },
   data() {
     return {
+      isPopUpPUzzledOnTop: false,
       currentProjectIndex: 0,
       showPopupBored: false,
       showPopupPuzzled: false,
@@ -224,6 +269,7 @@ export default {
   width: 100vw;
   max-width: 100vw;
   height: 40vh;
+  z-index: 30;
 }
 .project__popup--puzzled {
   top: 0;
@@ -232,6 +278,7 @@ export default {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  z-index: 50;
 }
 .projet__title {
   font-size: 10vw;
@@ -271,7 +318,6 @@ export default {
 
 .action__item {
   position: fixed;
-  z-index: 30;
 }
 
 .action__item--frag {
@@ -279,11 +325,13 @@ export default {
   left: 0vw;
   /* top: 1.5vw;
   left: 2.5vw; */
+  z-index: 40;
   transform: translate3d(var(--tx), var(--ty), 0);
 }
 .action__item--per {
   right: 1.5vw;
   bottom: 1.5vw;
+  z-index: 60;
 }
 .action__item--per:hover {
   color: rgb(230, 255, 7);
@@ -304,21 +352,29 @@ export default {
   color: rgb(7, 255, 110);
   border-color: rgb(7, 255, 110);
 }
+.zindextop {
+  z-index: 70;
+}
+.zindextopbtn {
+  z-index: 80;
+}
 .action__item.true {
 }
 .toggle-fun__container {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   position: relative;
 }
 .toggle-fun__always {
   /* position: absolute; */
   left: 0;
   opacity: 1;
+  animation: opacityAlot 3s linear infinite;
 }
 .toggle-fun__hover {
   position: absolute;
   left: 0;
   opacity: 0;
+  animation: opacityAlittle 3s linear infinite;
 }
 .toggle-fun__container:hover .toggle-fun__always {
   opacity: 0;
@@ -326,8 +382,52 @@ export default {
 .toggle-fun__container:hover .toggle-fun__hover {
   opacity: 1;
 }
-@media screen and (max-width: 900px) {
+.link {
+  color: white;
+  text-decoration: none;
 }
-@media screen and (max-width: 500px) {
+.link:hover {
+  color: white;
+  text-decoration: underline;
+}
+.underline {
+  text-decoration: line-through;
+}
+.rotate {
+  display: inline-block;
+  transform: translateY(-2px) rotateZ(-180deg);
+}
+@keyframes opacityAlot {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+  31% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes opacityAlittle {
+  0% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  31% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 </style>
