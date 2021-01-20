@@ -25,14 +25,32 @@
         :class="`project__popup project__popup--puzzled  ${showPopupBored}`"
       >
         <div class="projet__title">Why (no) fun ?</div>
-        <div class="project__con">
-          * No-FUN is a place where I transform my no-fun moment in very fun moment by doing shader,
-          wich become very soon some not so fun moment again. Because debugging shaders is such a
-          nightmare. But anyways, it’s fun again when it’s WORKS. * I hope no-fun can helps you
-          transforms your not-fun moment of doom scrolling on the world wide web in very fun ego
-          trip. * if you want to chat, feel free to contact me and if you want to stalk, feel free
-          to stalk me.
-        </div>
+        <ul class="project__con">
+          <li class="project__inf">
+            No-FUN is a place where I transform my
+            <span class="toggle-fun__container"
+              ><span class="toggle-fun__always">no-fun</span
+              ><span class="toggle-fun__hover">fun !!!</span></span
+            >
+            moment in very fun moment by doing shader, wich become very soon not so fun again :
+            indeed debugging shaders is a nightmare. But anyways, it’s fun again when it’s WORKS.
+          </li>
+          <li class="project__inf">
+            I hope no-fun can help you transform your not-fun moment of doomscrolling on the world
+            wide web in very fun ego trip (lol).
+          </li>
+          <li class="project__inf">
+            If you are still bored, and that you (dis)like (no)fun or want to chat want to chat,
+            feel free to
+            <a href="mailto:annabaumann.hello@gmail.com" class="link" target="_blank"
+              >contact me
+            </a>
+            and if you want to stalk, feel free to
+            <a href="https://www.instagram.com/bannabmnn.cyber/" class="link" target="_blank"
+              >stalk me</a
+            >. ˙ ͜ʟ˙
+          </li>
+        </ul>
       </div>
       <ul class="projet__actions">
         <li
@@ -212,14 +230,43 @@ export default {
   right: 0;
   width: 45vw;
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
 }
 .projet__title {
   font-size: 10vw;
   margin-bottom: 2vw;
+  white-space: initial;
+  line-height: 0.9;
 }
 .projet__content {
   display: flex;
   flex-wrap: wrap;
+}
+.project__con {
+  white-space: initial;
+  font-size: 1.4rem;
+  width: 75%;
+  margin-top: 2rem;
+}
+
+.project__inf {
+  font-family: "Helvetica", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  font-weight: 100;
+  /* font-family: serif; */
+  position: relative;
+  list-style: none;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  line-height: 130%;
+}
+
+.project__inf:before {
+  content: "➺";
+  position: absolute;
+  left: -30px;
+  top: 0;
 }
 
 .action__item {
@@ -258,6 +305,26 @@ export default {
   border-color: rgb(7, 255, 110);
 }
 .action__item.true {
+}
+.toggle-fun__container {
+  text-decoration: underline;
+  position: relative;
+}
+.toggle-fun__always {
+  /* position: absolute; */
+  left: 0;
+  opacity: 1;
+}
+.toggle-fun__hover {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+.toggle-fun__container:hover .toggle-fun__always {
+  opacity: 0;
+}
+.toggle-fun__container:hover .toggle-fun__hover {
+  opacity: 1;
 }
 @media screen and (max-width: 900px) {
 }
