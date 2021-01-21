@@ -64,7 +64,9 @@
             can help you transform your
             <span class="toggle-fun__container"
               ><span class="toggle-fun__always">not fun</span
-              ><span class="toggle-fun__hover "><span class="underline">not</span> fun </span></span
+              ><span class="toggle-fun__hover "
+                ><span class="underline hidden-xs">not</span> fun
+              </span></span
             >
             <span class="toggle-fun__container"
               ><span class="toggle-fun__always rotate"> ☻ </span
@@ -403,7 +405,7 @@ export default {
 
 @media screen and (max-width: 900px) {
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .project__popup--puzzled {
     width: 86vw;
   }
@@ -423,13 +425,7 @@ export default {
     margin-bottom: 40px;
     letter-spacing: -0.7vw;
   }
-  .button__title {
-    margin-right: 6vw;
-    margin-bottom: 4vw;
-    letter-spacing: -0.4vw;
-    font-size: 11vw;
-    box-shadow: none;
-  }
+
   .project__con {
     white-space: normal;
     font-size: 1.2rem;
@@ -442,6 +438,9 @@ export default {
     left: initial;
     right: 3vw;
     top: 3vw;
+  }
+  .hidden-xs {
+    display: none;
   }
 }
 

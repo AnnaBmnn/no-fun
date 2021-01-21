@@ -79,14 +79,16 @@ export default {
 
 <style scoped>
 .list__container {
+  width: 100vw;
+  overflow: hidden;
   height: 100vh;
 }
 .list {
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 600vw;
+  width: 140vw;
   position: fixed;
 }
 </style>

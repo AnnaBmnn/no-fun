@@ -82,16 +82,6 @@ export default {
 .content {
   position: relative;
 }
-.list__item {
-  height: 16.5vh;
-  overflow-y: hidden;
-  margin: 0;
-  list-style: none;
-  font-size: 24vh;
-  line-height: 0.7;
-  text-transform: uppercase;
-  color: black;
-}
 
 .list__item:nth-child(even) {
   transform: skewX(60deg);
@@ -128,5 +118,10 @@ export default {
 }
 .animation3d.list__item.list__item--7 {
   transform: translate(-9.5vh, -0.2vh);
+}
+@media screen and (max-width: 900px) {
+  .list__item:nth-child(even) {
+    transform: translateX(-10vw) skewX(60deg);
+  }
 }
 </style>

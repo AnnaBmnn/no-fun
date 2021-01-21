@@ -36,8 +36,10 @@ export default {
   display: inline-block;
   margin-bottom: 2vw;
   z-index: 10;
+  user-select: none;
 }
 .button__title {
+  user-select: none;
   z-index: 10;
   position: relative;
   pointer-events: initial;
@@ -73,9 +75,13 @@ export default {
 }
 @media screen and (max-width: 500px) {
   .button__title {
-    font-size: 12vw;
     padding: 0 5vw 0.3vw;
     border-radius: 7vw;
+    margin-right: 6vw;
+    margin-bottom: 4vw;
+    letter-spacing: -0.4vw;
+    font-size: 11vw;
+    box-shadow: none;
   }
 }
 </style>
