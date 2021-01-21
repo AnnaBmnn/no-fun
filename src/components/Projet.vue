@@ -13,7 +13,7 @@
           }  ${showPopupBored}`
         "
       >
-        <div class="projet__title">Try something else</div>
+        <div class="projet__title">Try some&shy;thing else</div>
         <div class="projet__content">
           <Button
             v-on:change-index="onChangeIndex"
@@ -132,6 +132,9 @@ export default {
       if (this.showPopupPuzzled == true && newPopupBored == true) {
         this.isPopUpPUzzledOnTop = true;
       }
+      // if (this.showPopupPuzzled == true && newPopupBored == false) {
+      //   this.isPopUpPUzzledOnTop = false;
+      // }
     },
     showPopupPuzzled: function(newPopupPuzzled) {
       if (newPopupPuzzled == false) {
@@ -397,6 +400,35 @@ export default {
   display: inline-block;
   transform: translateY(-2px) rotateZ(-180deg);
 }
+
+@media screen and (max-width: 900px) {
+}
+@media screen and (max-width: 500px) {
+  .action__item {
+    font-size: 8vw;
+    padding: 1.6vw 4vw;
+    border-radius: 53%;
+  }
+  .projet__title {
+    /* width: 85vw; */
+    font-size: 20vw;
+    font-weight: 500;
+    margin-bottom: 2.6vw;
+    white-space: normal;
+    line-height: 0.85;
+    /* word-break: break-all; */
+    margin-bottom: 40px;
+    letter-spacing: -0.7vw;
+  }
+  .button__title {
+    margin-right: 6vw;
+    margin-bottom: 4vw;
+    letter-spacing: -0.4vw;
+    font-size: 11vw;
+    box-shadow: 0;
+  }
+}
+
 @keyframes opacityAlot {
   0% {
     opacity: 0;
