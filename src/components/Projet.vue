@@ -276,6 +276,22 @@ export default {
   height: 40vh;
   z-index: 30;
 }
+@-moz-document url-prefix() {
+  .project__popup--bored {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+/* .project__popup--bored::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(10px);
+  z-index: -1;
+} */
 .project__popup--puzzled {
   top: 0;
   right: 0;

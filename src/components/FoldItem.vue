@@ -40,10 +40,10 @@ export default {
     };
   },
   watch: {
-    scrollAmount: function(newValue) {
-      this.newScrollValue = newValue;
-      requestAnimationFrame(this.animate);
-    },
+    // scrollAmount: function(newValue) {
+    //   this.newScrollValue = newValue;
+    //   requestAnimationFrame(this.animate);
+    // },
   },
   methods: {
     animate: function() {
@@ -60,8 +60,8 @@ export default {
       //       : `translate(-${this.newScrollValue}px, -${this.newScrollValue}px) skew(-20deg) `;
       //   this.$refs.animationFlat.style.transform = transform;
       // } else {
-      const transform = ` translate(0px, -${this.newScrollValue}px)`;
-      this.$refs.animation3d.style.transform = transform;
+      // const transform = ` translate(0px, -${this.newScrollValue}px)`;
+      // this.$refs.animation3d.style.transform = transform;
       // }
     },
   },

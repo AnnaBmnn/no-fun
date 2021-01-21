@@ -42,7 +42,7 @@ export default {
     },
   },
   mounted() {
-    const vm = this;
+    // const vm = this;
     //When the window has loaded we're going to work out the dimentions
     window.addEventListener("load", () => {
       // vm.getDimensions();
@@ -60,7 +60,7 @@ export default {
     window.addEventListener(
       "scroll",
       () => {
-        vm.scrollHandler();
+        // vm.scrollHandler();
       },
       true
     );
