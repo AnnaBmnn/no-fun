@@ -404,6 +404,9 @@ export default {
 @media screen and (max-width: 900px) {
 }
 @media screen and (max-width: 500px) {
+  .project__popup--puzzled {
+    width: 86vw;
+  }
   .action__item {
     font-size: 8vw;
     padding: 1.6vw 4vw;
@@ -425,7 +428,20 @@ export default {
     margin-bottom: 4vw;
     letter-spacing: -0.4vw;
     font-size: 11vw;
-    box-shadow: 0;
+    box-shadow: none;
+  }
+  .project__con {
+    white-space: normal;
+    font-size: 1.2rem;
+    width: 85%;
+    margin-top: 3rem;
+    margin-bottom: 20vh;
+  }
+  .action__item--frag {
+    transform: translate(0, 0) !important;
+    left: initial;
+    right: 3vw;
+    top: 3vw;
   }
 }
 
