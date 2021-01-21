@@ -1,7 +1,7 @@
 <template>
   <li ref="animationFlat" :class="`list__item list__item--${index} ${animationType}`">
     <div class="content" ref="animation3d">
-      <div v-for="n in 2" :key="n">
+      <div v-for="n in 1" :key="n">
         {{ (n + sign) % 2 == 0 ? contentFun : contentNoFun }}
       </div>
     </div>
@@ -71,13 +71,18 @@ export default {
 <style scoped>
 .list__item {
   height: 16.5vh;
-  overflow-y: hidden;
+  overflow: hidden;
   margin: 0;
   list-style: none;
   font-size: 24vh;
   line-height: 0.7;
   text-transform: uppercase;
   color: black;
+}
+@-moz-document url-prefix() {
+  .list__item {
+    line-height: 0.85 !important;
+  }
 }
 .content {
   position: relative;
