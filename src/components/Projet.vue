@@ -118,6 +118,8 @@ import Button from "../components/Button.vue";
 import { VBigBloupShader } from "../assets/shader/vertex/bigbloup.vert";
 import { VProject3Shader } from "../assets/shader/vertex/project3.vert";
 import { VProject4Shader } from "../assets/shader/vertex/project4.vert";
+import { VProject5Shader } from "../assets/shader/vertex/project5.vert";
+import { VProject6Shader } from "../assets/shader/vertex/project6.vert";
 import { VShader } from "../assets/shader/vertex/bloup.vert";
 
 export default {
@@ -191,8 +193,20 @@ export default {
         },
         {
           id: 3,
-          title: "lol",
+          title: "speedo",
           vertexShader: VProject4Shader,
+          fragmentShader: "fragmentshader2",
+        },
+        {
+          id: 4,
+          title: "<!-!>",
+          vertexShader: VProject5Shader,
+          fragmentShader: "fragmentshader2",
+        },
+        {
+          id: 5,
+          title: "spirale",
+          vertexShader: VProject6Shader,
           fragmentShader: "fragmentshader2",
         },
       ],
@@ -457,6 +471,11 @@ export default {
   }
   .hidden-xs {
     display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .project__popup--bored {
+    height: 45vh;
   }
 }
 

@@ -84,4 +84,11 @@ export default {
     box-shadow: none;
   }
 }
+@-moz-document url-prefix() {
+  @media screen and (max-width: 500px) {
+    .button__title {
+      border: 1px solid black;
+    }
+  }
+}
 </style>
