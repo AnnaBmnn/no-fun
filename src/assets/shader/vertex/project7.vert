@@ -16,7 +16,7 @@ void main()
   modelPosition.y =  modelPosition.y * 0.5;
   modelPosition.y = modelPosition.y +  normalize(cos(modelPosition.y * 1.0 + uTime * 0.05) * 1.0) * 0.5;
   modelPosition.z = modelPosition.z +  normalize(sin(modelPosition.z* 1.0 + uTime * 0.05) * 1.0) * 0.5;
-  // modelPosition.x = modelPosition.x +  normalize(modelPosition.x) * 0.5 ;
+  modelPosition.x = modelPosition.x +  normalize(modelPosition.x) * 0.5 ;
   // modelPosition.xy = reflect( modelPosition.xy , normalize(modelPosition.xy));
 
   vec4 viewPosition = viewMatrix * modelPosition;
