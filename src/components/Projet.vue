@@ -120,6 +120,7 @@ import { VProject3Shader } from "../assets/shader/vertex/project3.vert";
 import { VProject4Shader } from "../assets/shader/vertex/project4.vert";
 import { VProject5Shader } from "../assets/shader/vertex/project5.vert";
 import { VProject6Shader } from "../assets/shader/vertex/project6.vert";
+import { VProject7Shader } from "../assets/shader/vertex/project7.vert";
 import { VShader } from "../assets/shader/vertex/bloup.vert";
 
 export default {
@@ -207,6 +208,12 @@ export default {
           id: 5,
           title: "spirale",
           vertexShader: VProject6Shader,
+          fragmentShader: "fragmentshader2",
+        },
+        {
+          id: 6,
+          title: "normal",
+          vertexShader: VProject7Shader,
           fragmentShader: "fragmentshader2",
         },
       ],
@@ -371,6 +378,7 @@ export default {
 .action__item--per:hover {
   color: rgb(230, 255, 7);
   border-color: rgb(230, 255, 7);
+  transform: scale(1.05);
 }
 .action__item {
   cursor: pointer;
@@ -386,6 +394,8 @@ export default {
 .action__item--frag:hover {
   color: rgb(7, 255, 110);
   border-color: rgb(7, 255, 110);
+  transform: translate3d(var(--tx), var(--ty), 0) scale(1.05);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.7);
 }
 .zindextop {
   z-index: 70;

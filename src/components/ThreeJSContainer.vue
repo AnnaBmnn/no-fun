@@ -99,7 +99,7 @@ export default {
 
       // Controls
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-      this.controls.maxDistance = 2.5;
+      this.controls.maxDistance = window.innerWidth < 500 ? 1.5 : 2.2;
       this.controls.minDistance = 0.7;
 
       // Geometry
