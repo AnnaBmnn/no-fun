@@ -9,15 +9,47 @@ const routes = [
     path: "/",
     component: App,
     meta: {
-      title: "FUN NO",
+      title: "(NO)FUN",
       metaTags: [
         {
           name: "description",
-          content: "No fun is a (no)fun project.",
+          content: "No fun is a (no)fun project where shader experiments are posted.",
+        },
+        {
+          property: "og:title",
+          content: "(NO)FUN",
         },
         {
           property: "og:description",
-          content: "No fun is a (no)fun project.",
+          content: "No fun is a (no)fun project where shader experiments are posted.",
+        },
+        {
+          property: "og:image",
+          content: "https://no-fun.fun/socials-img.png",
+        },
+        {
+          property: "og:url",
+          content: "https://no-fun.fun/",
+        },
+        {
+          property: "twitter:title",
+          content: "(NO)FUN",
+        },
+        {
+          property: "twitter:description",
+          content: "No fun is a (no)fun project where shader experiments are posted.",
+        },
+        {
+          property: "twitter:image",
+          content: "https://no-fun.fun/socials-img.png",
+        },
+        {
+          property: "twitter:url",
+          content: "https://no-fun.fun/",
+        },
+        {
+          property: "twitter:card",
+          content: "summary_large_image",
         },
       ],
     },
