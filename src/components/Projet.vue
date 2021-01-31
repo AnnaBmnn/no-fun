@@ -121,6 +121,7 @@ import { VProject4Shader } from "../assets/shader/vertex/project4.vert";
 import { VProject5Shader } from "../assets/shader/vertex/project5.vert";
 import { VProject6Shader } from "../assets/shader/vertex/project6.vert";
 import { VProject7Shader } from "../assets/shader/vertex/project7.vert";
+import { VProject8Shader } from "../assets/shader/vertex/project8.vert";
 import { VShader } from "../assets/shader/vertex/bloup.vert";
 
 export default {
@@ -214,6 +215,12 @@ export default {
           id: 6,
           title: "normal",
           vertexShader: VProject7Shader,
+          fragmentShader: "fragmentshader2",
+        },
+        {
+          id: 7,
+          title: "soap",
+          vertexShader: VProject8Shader,
           fragmentShader: "fragmentshader2",
         },
       ],
@@ -329,6 +336,7 @@ export default {
   line-height: 0.9;
 }
 .projet__content {
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -465,7 +473,9 @@ export default {
     margin-bottom: 40px;
     letter-spacing: -0.7vw;
   }
-
+  .projet__content {
+    width: 100%;
+  }
   .project__con {
     white-space: normal;
     font-size: 1.2rem;
