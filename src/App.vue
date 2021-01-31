@@ -34,9 +34,6 @@ export default {
 
 <style lang="scss">
 body {
-  height: é100vh;
-  background-color: #814200;
-  background-color: #7bd8ff;
   background-color: white;
   margin: 0;
   padding: 0;
