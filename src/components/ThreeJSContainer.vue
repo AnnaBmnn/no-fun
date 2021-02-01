@@ -23,7 +23,7 @@ export default {
       geometry: null,
       texture: null,
       vertexShader: null,
-      fragmentSahder: null,
+      fragmentSahder: FBaseShader,
       shaderMaterial: null,
       mesh: null,
       hlight: null,
@@ -196,7 +196,13 @@ export default {
   mounted() {
     this.init();
     this.animate();
-    this.getPermissonWebcam();
+    let md = navigator.mediaDevices;
+    if (!md || !md.enumerateDevices) {
+      this.isWebcamAllowed = false;
+      this.toggleTextureWebcam();
+    } else {
+      this.getPermissonWebcam();
+    }
     console.log(this.permissionState);
 
     if (this.permissionState == false) {
