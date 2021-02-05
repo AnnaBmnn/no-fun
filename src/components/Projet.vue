@@ -41,7 +41,7 @@
               ><span class="toggle-fun__always"> ☻ fun ☻ </span
               ><span class="toggle-fun__hover">no fun</span></span
             >
-            moment by doing shader, wich become very soon
+            moment by doing shader, which become very soon
             <span class="toggle-fun__container"
               ><span class="toggle-fun__always">not so </span
               ><span class="toggle-fun__hover underline">not so</span></span
