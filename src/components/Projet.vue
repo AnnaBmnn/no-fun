@@ -90,13 +90,17 @@
       </div>
       <ul class="projet__actions">
         <li
-          :class="`action__item action__item--frag ${isPopUpPUzzledOnTop ? 'zindextopbtn' : ''}`"
+          :class="
+            `action__item action__item--frag ${showPopupBored ? 'open' : 'close'} ${
+              isPopUpPUzzledOnTop ? 'zindextopbtn' : ''
+            }`
+          "
           ref="btnBored"
           @mouseenter="addBored = 0"
           @mouseleave="addBored = 5"
           @click="showPopupBored = !showPopupBored"
         >
-          {{ showPopupBored ? "bored :(" : "bored ?" }}
+          {{ showPopupBored ? "close" : "bored ?" }}
         </li>
         <li
           class="action__item action__item--per"
@@ -259,7 +263,7 @@ export default {
       document.documentElement.style.setProperty("--tx", _x);
       document.documentElement.style.setProperty("--ty", _y);
       // this.$refs.btnBored.style.transform = `translate(${this.posBtnBored.x}px, ${this.posBtnBored.y}px)`;
-      requestAnimationFrame(this.positionneRandom);
+      // requestAnimationFrame(this.positionneRandom);
     },
     randomIntFromInterval(min, max) {
       // min and max included
@@ -271,7 +275,7 @@ export default {
     this.windowWidth = window.innerWidth;
     this.btnBoredHeight = this.$refs.btnBored.offsetHeight;
     this.btnBoredWidth = this.$refs.btnBored.offsetWidth;
-    this.positionneRandom();
+    // this.positionneRandom();
   },
 };
 </script>
@@ -369,25 +373,6 @@ export default {
 .action__item {
   position: fixed;
 }
-
-.action__item--frag {
-  top: 0vw;
-  left: 0vw;
-  /* top: 1.5vw;
-  left: 2.5vw; */
-  z-index: 40;
-  transform: translate3d(var(--tx), var(--ty), 0);
-}
-.action__item--per {
-  right: 1.5vw;
-  bottom: 1.5vw;
-  z-index: 60;
-}
-.action__item--per:hover {
-  color: rgb(230, 255, 7);
-  border-color: rgb(230, 255, 7);
-  transform: scale(1.05);
-}
 .action__item {
   cursor: pointer;
   list-style: none;
@@ -399,10 +384,39 @@ export default {
   border-radius: 52%;
   font-family: "Helvetica", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+.action__item--frag {
+  right: 1.5vw;
+  top: 1.5vw;
+  /* top: 1.5vw;
+  left: 2.5vw; */
+  z-index: 40;
+  transform: translate3d(var(--tx), var(--ty), 0);
+  /* animation: scale 3s infinite linear; */
+  color: rgb(7, 255, 110);
+  border-color: rgb(7, 255, 110);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.7);
+}
+.action__item--frag.open {
+  animation: none;
+}
+.action__item--per {
+  right: 1.5vw;
+  bottom: 1.5vw;
+  z-index: 60;
+  color: rgb(230, 255, 7);
+  border-color: rgb(230, 255, 7);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.7);
+  /* animation: scale 3s infinite linear; */
+}
+.action__item--per:hover {
+  color: rgb(230, 255, 7);
+  border-color: rgb(230, 255, 7);
+  transform: scale(1.05);
+}
+
 .action__item--frag:hover {
   color: rgb(7, 255, 110);
   border-color: rgb(7, 255, 110);
-  transform: translate3d(var(--tx), var(--ty), 0) scale(1.05);
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.7);
 }
 .zindextop {
@@ -530,6 +544,17 @@ export default {
 
   100% {
     opacity: 0;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
